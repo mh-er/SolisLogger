@@ -17,7 +17,7 @@ Note: set in config.h
 - DS18B20 false, if there is no temperature sensor connected.
 - LED_USE false, if there are no external LEDs connected.
 
-<img src="docs/img/SolisLoggerLayout.png" alt="Layout"  style="height: 423px; width:650px;" />
+<img src="./docs/img/SolisLoggerLayout.png" alt="Layout"  style="height: 423px; width:650px;" />
 
 ## Description ##
 On boot, the devide provides a local internet access point at 192.168.4.1 to connect for configuration.
