@@ -83,7 +83,7 @@ STA (station) mode and connect to a local WLAN if configured.
 ### Web Interface in a local WLAN (WiFi STA mode)
 If the device has already been configured, it will automatically connect to the local WiFi after timeout.  
 The device web interface can be reached via the IP address obtained from your local network's DHCP server or the configured SSID name.  
-A small home page is provided at *<localIP>/start* which offers access to the configuration page as well.  
+A small home page is provided at *\<localIP\>/start* which offers access to the configuration page as well.  
 To login into configuration, provide the user *admin* and the configured AP *password*.
 
 ### Configuration Parameter
