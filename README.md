@@ -22,15 +22,16 @@ Note: set in config.h
 
 ### Solis inverter socket
 The RS485 ModBus is available at the COM port of the Solis inverter. The pinout of the Solis S6 Mini inverter is shown below. Please check if the pinout is different when using with another version of the inverter.
-A suitable plug type is Exceedconn EC04681-2014-BF.
+A suitable plug type is Exceedconn EC04681-2014-BF.  
+
 <img src="./docs/img/Solis6_SocketPinLayout.png" alt="Solis6 COM Socket Pinout" />
 
 ### Dash Board
 <img src="./docs/img/SolisLoggerDashBoard.png" alt="Dash Board"  style="height: 423px; width:650px;" />
-Note: Inverter Status 0xE2 means the inverter is not reachable (because of switch-off at night).
+Note: Inverter Status 0xE2 means the inverter is not reachable (because of switch-off at darkness).
 
 ## Description ##
-On boot, the device provides a local internet access point at 192.168.4.1/config to connect for configuration.
+On boot, the device provides a local internet access point at http://192.168.4.1/config to connect for configuration.
 The initial (default) password is defined in config.h.  
 After configuration or a 30sec timeout, the device connects to a local WiFi and provides a small home page at *\<localIP\>/start* 
 to access the Dash Board, the configuration page and to reset the device.  
@@ -69,14 +70,14 @@ The program provides a Web Interface for configuration and a small home page.
 
 ### Web Access Point (WiFI AP mode)
 The program provides a Web Access Point at boot time via http://192.168.4.1/config (or the configured SSID name) using the configured password.  
-Note: http://192.168.4.1 will access the Dash Board, not the config page.
+Note: http://192.168.4.1 will access the Dash Board, not the config page.  
 It offers a configuration page both for the Access Point and for a local WLAN SSID name and password.  
 Additional customer parameters are supported.  
 Configuration is stored in EEPROM.  
 
-At first boot, the defined default password *MY_WIFI_AP_DEFAULT_PASSWORD* (as defined in *config.h*)is used for AP mode access.  
+At first boot, the defined default password *MY_WIFI_AP_DEFAULT_PASSWORD* (as defined in *config.h*) is used for AP mode access.  
 Note: at first boot you need to configure the device: set a new AP password, the WLAN SSID and WLAN password, and push the apply button.
-Disconnect from the the Access Point to continue and reset the device.
+**Disconnect** from the the Access Point to continue and **reset** the device.
 
 If no client connects before the timeout (configured to 30sec), the device will automatically continue in 
 STA (station) mode and connect to a local WLAN if configured.
