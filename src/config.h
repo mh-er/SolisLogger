@@ -19,15 +19,15 @@
 // otherwise the previous configuration is considered valid.
 #define WIFI_AP_CONFIG_VERSION "3.2.1"   // 4 bytes are significant for check with EEPROM (IOTWEBCONF_CONFIG_VERSION_LENGTH in confWebSettings.h)
 
-#define WIFI_AP_SSID "SolisLogger"
+#define WIFI_AP_SSID "YourSolisLogger"
 #define WIFI_AP_IP "192.168.4.1"            // default address, set by the framework.
-#define WIFI_AP_DEFAULT_PASSWORD "<yourDefaultAPpassword>"
+#define WIFI_AP_DEFAULT_PASSWORD "yourDefaultAPpassword"
 #define WEBCONF_AP_MODE_CONFIG_PIN D3       // to force AP mode
 
 //your own WLAN
-#define MY_SSID "<yourWLANname>"
+#define MY_SSID "yourWLANname"
 #define MY_PASSWORD ""
-#define MY_HOSTNAME "SolisLogger"
+#define MY_HOSTNAME "YourSolisLogger"
 
 //  Time
 #define NMAX_DATE_TIME 20               // max length of date and time string
@@ -56,7 +56,7 @@
 #define DATE_UPDATE_INTERVAL 60000 // in ms; for Dash Board
 
 // Volkszaehler
-#define VZ_SERVER             "<yourVolkszaehlerServer_name_or_IP>"
+#define VZ_SERVER             "yourVolkszaehlerServer_name_or_IP"
 #define VZ_MIDDLEWARE         "middleware.php"
 #define VZ_DATA_JSON          "data.json"
 #define VZ_UUID_NO_SEND       "null"        // use this uuid if you do not want to transmit data for a channel

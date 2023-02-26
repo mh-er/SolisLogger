@@ -22,6 +22,7 @@ Note: set in config.h
 
 ### Solis inverter socket
 The RS485 ModBus is available at the COM port of the Solis inverter. The pinout of the Solis S6 Mini inverter is shown below. Please check if the pinout is different when using with another version of the inverter.
+A suitable plug type is Exceedconn EC04681-2014-BF.
 <img src="./docs/img/Solis6_SocketPinLayout.png" alt="Solis6 COM Socket Pinout" />
 
 ### Dash Board
@@ -29,7 +30,7 @@ The RS485 ModBus is available at the COM port of the Solis inverter. The pinout 
 Note: Inverter Status 0xE2 means the inverter is not reachable (because of switch-off at night).
 
 ## Description ##
-On boot, the device provides a local internet access point at 192.168.4.1 to connect for configuration.
+On boot, the device provides a local internet access point at 192.168.4.1/config to connect for configuration.
 The initial (default) password is defined in config.h.  
 After configuration or a 30sec timeout, the device connects to a local WiFi and provides a small home page at *\<localIP\>/start* 
 to access the Dash Board, the configuration page and to reset the device.  
@@ -67,13 +68,13 @@ LED_BLUE and LED_YELLOW define the PIN of the LEDs in config.h
 The program provides a Web Interface for configuration and a small home page.
 
 ### Web Access Point (WiFI AP mode)
-The program provides a Web Access Point at boot time via http://192.168.4.1 (or the configured SSID name) 
-using the configured password.  
+The program provides a Web Access Point at boot time via http://192.168.4.1/config (or the configured SSID name) using the configured password.  
+Note: http://192.168.4.1 will access the Dash Board, not the config page.
 It offers a configuration page both for the Access Point and for a local WLAN SSID name and password.  
 Additional customer parameters are supported.  
 Configuration is stored in EEPROM.  
 
-At first boot, the defined default password *MY_WIFI_AP_DEFAULT_PASSWORD* is used for AP mode access.  
+At first boot, the defined default password *MY_WIFI_AP_DEFAULT_PASSWORD* (as defined in *config.h*)is used for AP mode access.  
 Note: at first boot you need to configure the device: set a new AP password, the WLAN SSID and WLAN password, and push the apply button.
 Disconnect from the the Access Point to continue and reset the device.
 
@@ -96,10 +97,10 @@ Note: SolisLogger will send data with standard UNIX epoch time (ms) timestamps (
 ## Usage
 - Just switch on the board.
 - Connect to the access point if you need to configure your local WiFi net:  
-IP address 192.168.4.1 (or the specified network name) 
-using your configured AP password. This needs to be done at first boot.
+IP address 192.168.4.1 (or the specified network name) e.g. using a mobile phone or tablet
+with your configured AP password. This needs to be done at first boot.
 - A "force-to-AP" mode is provided in case of forgotten password:  
-Connect *WEBCONF_AP_MODE_CONFIG_PIN* to ground and use *MY_WIFI_AP_DEFAULT_PASSWORD*.  
+Connect *WEBCONF_AP_MODE_CONFIG_PIN* (preset is pin D3) to ground and use *MY_WIFI_AP_DEFAULT_PASSWORD*.  
 - Wait for AP timeout and access the home page in your local network:  
 accessible by the WLAN SSID (or IP address provided by your DHCP server).
 - You can access the configuration page in STA mode by login as *admin* with the configured AP password.
@@ -138,14 +139,14 @@ Build and download the firmware to the target hardware.
   
 ### Dependency Graph ###
 ``` bash
-Dependency Graph (output of platformio)
+Dependency Graph
 |-- ModbusMaster @ 2.0.1+sha.3a05ff8
 |-- ESP-DASH @ 4.0.1+sha.9431138
 |   |-- ESP Async WebServer @ 1.2.3+sha.f71e3d4
 |   |   |-- ESPAsyncTCP @ 1.2.2+sha.1547686
 |   |   |-- Hash @ 1.0
 |   |   |-- ESP8266WiFi @ 1.0
-|   |-- ArduinoJson @ 6.19.4+sha.6e17c3e
+|   |-- ArduinoJson @ 6.20.1+sha.42ae8c3
 |   |-- ESP8266WiFi @ 1.0
 |   |-- ESPAsyncTCP @ 1.2.2+sha.1547686
 |   |-- Hash @ 1.0
@@ -154,7 +155,7 @@ Dependency Graph (output of platformio)
 |   |-- ESPAsyncTCP @ 1.2.2+sha.1547686
 |   |-- Hash @ 1.0
 |   |-- ESP8266WiFi @ 1.0
-|-- ArduinoJson @ 6.19.4+sha.6e17c3e
+|-- ArduinoJson @ 6.20.1+sha.42ae8c3
 |-- Time @ 1.6.1+sha.a18e50d
 |-- OneWire @ 2.3.7+sha.386a8d0
 |-- confWeb @ 1.0.0
@@ -162,7 +163,7 @@ Dependency Graph (output of platformio)
 |   |   |-- ESPAsyncTCP @ 1.2.2+sha.1547686
 |   |   |-- Hash @ 1.0
 |   |   |-- ESP8266WiFi @ 1.0
-|   |-- ArduinoJson @ 6.19.4+sha.6e17c3e
+|   |-- ArduinoJson @ 6.20.1+sha.42ae8c3
 |   |-- EEPROM @ 1.0
 |   |-- ESP8266WiFi @ 1.0
 |   |-- ESPAsyncTCP @ 1.2.2+sha.1547686
